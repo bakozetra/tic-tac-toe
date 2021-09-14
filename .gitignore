@@ -2,12 +2,15 @@
 
 # dependencies
 /node_modules
+server/node_modules
 /.pnp
 .pnp.js
 
+/server/data
+/server/uploads
 # testing
 /coverage
-yarn.lock
+
 # production
 /build
 
@@ -21,3 +24,8 @@ yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
+
+/cypress/videos
+/cypress/screenshots
+/storybook-static
