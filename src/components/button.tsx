@@ -25,9 +25,9 @@ export interface ButtonProp {
 export const Button: React.FC<ButtonProp> = ({ label, onClick }) => {
   return (
     <ButtonWapper>
-      <Link to={Paths.LOGIN} data-testid={label}>
-        <button onClick={onClick}>{label}</button>
-      </Link>
+      {/* <Link to={Paths.LOGIN} data-testid={label}> */}
+      <button onClick={onClick}>{label}</button>
+      {/* </Link> */}
     </ButtonWapper>
   )
 }

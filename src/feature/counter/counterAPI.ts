@@ -5,8 +5,8 @@ export function fetchCount(amount = 1) {
   )
 }
 
-export function FetchSquare(square: []) {
-  return new Promise<{ data: [] }>((resolve) =>
+export function FetchSquare(square: string[]) {
+  return new Promise<{ data: string[] }>((resolve) =>
     setTimeout(() => resolve({ data: square }), 5000)
   )
 }
