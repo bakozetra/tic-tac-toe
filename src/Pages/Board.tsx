@@ -11,6 +11,8 @@ const Game = (props: Props) => {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
       width: '300px',
+      gridGap: '4px',
+      background: 'black',
     },
   }
   return (
