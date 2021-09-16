@@ -1,11 +1,11 @@
 import React from 'react'
-import { Counter } from './feature/counter/Counter'
 import './App.css'
+import Test from './Pages/homePage'
 
 function App() {
   return (
     <div>
-      <Counter />
+      <Test />
     </div>
   )
 }

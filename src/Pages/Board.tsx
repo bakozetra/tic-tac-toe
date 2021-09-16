@@ -1,5 +1,5 @@
 import React from 'react'
-import { Square } from '../components/Square'
+import Square from '../components/Square/square'
 interface Props {
   board: string[]
   handleClick(index: number): void
@@ -16,8 +16,6 @@ const Game = (props: Props) => {
   return (
     <div style={styles.board}>
       {board.map((value, index) => {
-        console.log(value)
-
         return (
           <Square
             key={index}

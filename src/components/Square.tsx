@@ -19,8 +19,11 @@ const ButtonStyle = styled.button`
 
 interface SquareProps {
   value: string
-  onClick: () => void
+  index: number
+  handleClick(index: number): void
 }
-export const Square: React.FC<SquareProps> = ({ value, onClick }) => (
-  <ButtonStyle onClick={onClick}>{value}</ButtonStyle>
-)
+export const Square: React.FC<SquareProps> = ({
+  value,
+  handleClick,
+  index,
+}) => <ButtonStyle onClick={() => handleClick(index)}>{value}</ButtonStyle>

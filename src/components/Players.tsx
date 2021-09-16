@@ -2,12 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Url } from 'url'
 import { fonts } from './GlobalStyle/fonts'
-// import IconPlayer from '../svg/Ellipse.svg'
 interface PlayerProp {
-  label: string
   placeholder: string
   inputType: string
-  inputId: string
   inputValue: string
   onChange: React.ChangeEventHandler<HTMLInputElement> | undefined
   url: string
@@ -33,7 +30,7 @@ const InputStyle = styled.input`
 `
 export const Player: React.FC<PlayerProp> = ({
   inputType,
-  inputId,
+
   placeholder,
   inputValue,
   onChange,
@@ -45,10 +42,9 @@ export const Player: React.FC<PlayerProp> = ({
       <img src={url} alt={alt} />
       <InputStyle
         type={inputType}
-        id={inputId}
-        placeholder={placeholder}
         value={inputValue}
         onChange={onChange}
+        placeholder={placeholder}
       />
     </WrapperPlayers>
   )

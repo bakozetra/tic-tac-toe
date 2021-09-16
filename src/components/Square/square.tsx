@@ -1,4 +1,3 @@
-import Reac from 'react'
 interface Props {
   index: number
   value: string
@@ -11,6 +10,9 @@ const Square = (props: Props) => {
       width: '100px',
       height: '100px',
       fontSize: '46px',
+      background: 'white',
+      borderBottom: 'none',
+      borderLeft: 'none',
     },
   }
   return (

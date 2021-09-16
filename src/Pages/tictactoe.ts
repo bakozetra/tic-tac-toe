@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../Redux/hooks'
-import { selectBoard } from '../Redux/slice/ticTacToeSlice'
+import { ReturnValue, selectBoard } from '../Redux/slice/ticTacToeSlice'
 import {
   setBoard,
   setStatus,
@@ -8,14 +8,8 @@ import {
   setWinner,
   setPlayers,
 } from '../Redux/slice/ticTacToeSlice'
-import Start from './Start'
-import Finished from './finished'
-import Game from './Board'
-import { Header } from '../components/Header'
-import { Player } from '../components/Players'
-import styled from 'styled-components'
 
-export const Name = () => {
+export default (): ReturnValue => {
   const dispatch = useAppDispatch()
   const { board, status, turn, winner, players } = useAppSelector(selectBoard)
 
@@ -50,9 +44,10 @@ export const Name = () => {
       dispatch(setStatus('finished'))
       return
     }
-    setStatus(board.filter((value) => !value).length ? 'started' : 'finished')
+    dispatch(
+      setStatus(board.filter((value) => !value).length ? 'started' : 'finished')
+    )
   }, [board, players, status])
-
   const handleClick = (index: number): void => {
     if (index < 0 || index > 9 || winner) return
     const newBoard = [...board]
@@ -72,33 +67,14 @@ export const Name = () => {
     dispatch(setStatus('created'))
   }
 
-  console.log(status)
-
-  return (
-    <Container>
-      <Header title={'Tic tac toe'} />
-      <Wrapper>
-        {status === 'created' && (
-          <Start handleStart={handleStart} players={players} />
-        )}
-        {status === 'finished' && (
-          <Finished name={winner} handleRestart={handleRestart} />
-        )}
-        {status === 'started' && (
-          <Game board={board} handleClick={handleClick} />
-        )}
-      </Wrapper>
-    </Container>
-  )
+  return {
+    board,
+    status,
+    winner,
+    players,
+    turn,
+    handleClick,
+    handleRestart,
+    handleStart,
+  }
 }
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-`
-const Wrapper = styled.div`
-  width: 70%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-`
