@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AppThunk, RootState } from '../store'
+import { createSlice } from '@reduxjs/toolkit'
+import { RootState } from '../store'
 
 export interface ReturnValue {
   board: string[]
@@ -26,7 +26,6 @@ const initialState: ReturnValue = {
 export const gameSlice = createSlice({
   name: 'game',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     setBoard: (state, action) => {
       state.board = action.payload

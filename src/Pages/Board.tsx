@@ -1,4 +1,3 @@
-import React from 'react'
 import Square from '../components/Square/square'
 interface Props {
   board: string[]
@@ -6,6 +5,7 @@ interface Props {
 }
 const Game = (props: Props) => {
   const { board, handleClick } = props
+
   const styles = {
     board: {
       display: 'grid',
@@ -13,6 +13,7 @@ const Game = (props: Props) => {
       width: '300px',
       gridGap: '4px',
       background: 'black',
+      margin: 'auto',
     },
   }
   return (

@@ -12,7 +12,7 @@ import {
 export default (): ReturnValue => {
   const dispatch = useAppDispatch()
   const { board, status, turn, winner, players } = useAppSelector(selectBoard)
-
+  let winningPositionsIndex = 0
   useEffect(() => {
     if (status !== 'started') return
     const winningPositions = [
@@ -25,7 +25,7 @@ export default (): ReturnValue => {
       [0, 4, 8],
       [2, 4, 6],
     ]
-    let winningPositionsIndex = 0
+
     let winner: string | null = null
     while (winningPositionsIndex < winningPositions.length && !winner) {
       const boardPositionsToCheck = winningPositions[winningPositionsIndex]
@@ -48,6 +48,12 @@ export default (): ReturnValue => {
       setStatus(board.filter((value) => !value).length ? 'started' : 'finished')
     )
   }, [board, players, status])
+  const handleStart = (players: string[]) => {
+    dispatch(setPlayers(players))
+    dispatch(setTurn('X'))
+    dispatch(setStatus('started'))
+  }
+
   const handleClick = (index: number): void => {
     if (index < 0 || index > 9 || winner) return
     const newBoard = [...board]
@@ -56,11 +62,7 @@ export default (): ReturnValue => {
     const newTurn = turn === 'X' ? 'O' : 'X'
     dispatch(setTurn(newTurn))
   }
-  const handleStart = (players: string[]) => {
-    dispatch(setPlayers(players))
-    dispatch(setTurn('X'))
-    dispatch(setStatus('started'))
-  }
+
   const handleRestart = () => {
     dispatch(setBoard(Array(9).fill('')))
     dispatch(setWinner(''))

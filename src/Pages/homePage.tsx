@@ -11,7 +11,7 @@ const Container = styled.div`
   height: 100%;
 `
 const Wrapper = styled.div`
-  width: 70%;
+  width: 50%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@ const HomePage: any = () => {
       <Header title={'Tic tac toe'} />
       <Wrapper>
         {game.status === 'new' && <Start handleStart={game.handleStart} />}
+        {game.status === 'created' && <Start handleStart={game.handleStart} />}
         {game.status === 'started' && (
           <Game board={game.board} handleClick={game.handleClick} />
         )}
