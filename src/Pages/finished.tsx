@@ -4,8 +4,6 @@ interface Props {
 }
 const Finished = (props: Props) => {
   const { name, handleRestart } = props
-  console.log(name)
-
   return (
     <div>
       <h1>

@@ -22,7 +22,7 @@ const Start = (props: Props) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!canStart) return
-    handleStart(players)
+    handleStart && handleStart(players)
   }
   return (
     <div>

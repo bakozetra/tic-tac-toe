@@ -11,8 +11,7 @@ const Square = (props: Props) => {
       height: '100px',
       fontSize: '46px',
       background: 'white',
-      borderBottom: 'none',
-      borderLeft: 'none',
+      border: 'none',
     },
   }
   return (

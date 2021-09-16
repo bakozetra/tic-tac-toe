@@ -23,7 +23,6 @@ const HomePage: any = () => {
       <Header title={'Tic tac toe'} />
       <Wrapper>
         {game.status === 'new' && <Start handleStart={game.handleStart} />}
-        {game.status === 'created' && <Start handleStart={game.handleStart} />}
         {game.status === 'started' && (
           <Game board={game.board} handleClick={game.handleClick} />
         )}
